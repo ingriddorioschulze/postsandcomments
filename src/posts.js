@@ -39,16 +39,17 @@ export default class Posts extends React.Component {
     const { posts, comments } = this.state;
     return (
       <React.Fragment>
-        <div>Posts</div>
-        <div className="posts">
+        <div className="container">
           {posts.map(post => (
             <div className="post" key={post.id}>
-              <div className="post-title">Title: {post.title}</div>
-              <div className="post-text">Text: {post.body}</div>
+              <div className="post-title">
+                <b>{post.title}</b>
+              </div>
+              <div className="post-text">{post.body}</div>
             </div>
           ))}
         </div>
-        <div className="comment">
+        <div className="container">
           <form
             onSubmit={e => {
               e.preventDefault();
@@ -63,11 +64,10 @@ export default class Posts extends React.Component {
             />
             <button className="btn">submit</button>
           </form>
-          <div>Comments</div>
-          <div className="showComments">
+          <div className="show-comments">
             {comments.map(comment => (
-              <div className="showComment" key={comment.id}>
-                <div>{comment.body}</div>
+              <div className="show-comment" key={comment.id}>
+                <div className="comment">{comment.body}</div>
               </div>
             ))}
           </div>
